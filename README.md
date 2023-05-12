@@ -1,3 +1,3 @@
-# jojo-api
+# Jojo's API
 
 Coming Soon
