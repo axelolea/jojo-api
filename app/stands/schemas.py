@@ -1,28 +1,39 @@
 from pydantic import BaseModel
 from enum import Enum
-from app.shared.schemas import ImagesSchema
 
-stats_values = Enum(
+from app.images.schemas import ImagesSchema
+from app.shared.schemas import PaginationSchema
+
+StatsValues = Enum(
     'StatsValues',
     ['NULL', 'A', 'B', 'C', 'D', 'E', 'INFINITE', '?']
 )
 
 
 class StatsSchema(BaseModel):
-    power: stats_values
-    speed: stats_values
-    range: stats_values
-    durability: stats_values
-    precision: stats_values
-    potential: stats_values
+    power: StatsValues
+    speed: StatsValues
+    range: StatsValues
+    durability: StatsValues
+    precision: StatsValues
+    potential: StatsValues
 
 
-class Stand(BaseModel):
-    id: int
+class StandSchema(BaseModel):
     name: str
     japanese_name: str
     alter_name: str | None = None
+    images: ImagesSchema
+    parts: list
     abilities: str
     battlecry: str | None = None
-    images: ImagesSchema
     stats: StatsSchema
+
+
+class StandInDB(StandSchema):
+    id: int
+
+
+class StandsList(BaseModel):
+    data: list[StandInDB]
+    pagination: PaginationSchema

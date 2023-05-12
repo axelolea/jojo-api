@@ -7,8 +7,3 @@ class PaginationSchema(BaseModel):
     total: int
     previous: bool
     next: bool
-
-
-class ImagesSchema(BaseModel):
-    full_body: str | None = None
-    half_body: str
