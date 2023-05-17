@@ -7,7 +7,11 @@ from app.parts.router import router as parts_router
 from app.images.router import router as images_router
 
 # App
-app = FastAPI()
+app = FastAPI(
+    title='Jojo\'s API',
+    description='',
+    version='1.0.0'
+)
 
 # Include router
 app.include_router(characters_router, prefix='/characters', tags=['Characters'])
