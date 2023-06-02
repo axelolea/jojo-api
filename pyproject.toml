@@ -8,8 +8,13 @@ packages = [{include = "jojo_api"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-fastapi = {extras = ["all"], version = "^0.95.1"}
 sqlalchemy = "^2.0.13"
+alembic = "^1.11.0"
+mariadb = "^1.1.6"
+
+[tool.poetry.dependencies.fastapi]
+extras = ["all"]
+version = "^0.95.1"
 
 
 [build-system]
