@@ -7,7 +7,7 @@ router = APIRouter()
 
 
 @router.get(
-    '/parts',
+    '/',
     status_code=status.HTTP_200_OK,
     response_model=ListPartsSchema
 )
@@ -15,11 +15,11 @@ async def get_parts(
     part_repository: PartRepositoryDep
 ):
     parts = part_repository.get_all()
-    return parts
+    return {'data': parts}
 
 
 @router.get(
-    '/parts/{number}',
+    '/{number}',
     status_code=status.HTTP_200_OK,
     response_model=PartSchema
 )
@@ -28,12 +28,11 @@ async def get_part(
         part_repository: PartRepositoryDep
 ):
     part = part_repository.find_one(number)
-    # return {**part.__dict__}
     return part
 
 
 @router.post(
-    '/parts',
+    '/',
     status_code=status.HTTP_201_CREATED,
     response_model=PartSchema
 )

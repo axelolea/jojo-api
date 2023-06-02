@@ -18,15 +18,11 @@ class PartSchema(BaseModel):
     )
 
     class Config:
-        schema_extra = {
-            'example': {
-                "number": 5,
-                "name": "Vento Aureo",
-                "japanese_name": "黄金の風",
-                "alter_name": "Golden Wind"
-            }
-        }
+        orm_mode = True
 
 
 class ListPartsSchema(BaseModel):
     data: list[PartSchema]
+
+    class Config:
+        orm_mode = True
