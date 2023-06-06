@@ -5,12 +5,11 @@ from app.characters.router import router as characters_router
 from app.stands.router import router as stands_router
 from app.parts.router import router as parts_router
 from app.images.router import router as images_router
+from app.utils.constants import FAST_API_CONFIG
 
 # App
 app = FastAPI(
-    title='Jojo\'s API',
-    description='',
-    version='1.0.0'
+    **FAST_API_CONFIG
 )
 
 # Include router

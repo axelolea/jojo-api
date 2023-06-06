@@ -1,22 +1,18 @@
 from pydantic import BaseModel
-from enum import Enum
 
 from app.images.schemas import ImagesSchema
 from app.shared.schemas import PaginationSchema
 
-StatsValues = Enum(
-    'StatsValues',
-    ['NULL', 'A', 'B', 'C', 'D', 'E', 'INFINITE', '?']
-)
+from app.utils.constants import StatsEnum
 
 
 class StatsSchema(BaseModel):
-    power: StatsValues
-    speed: StatsValues
-    range: StatsValues
-    durability: StatsValues
-    precision: StatsValues
-    potential: StatsValues
+    power: StatsEnum
+    speed: StatsEnum
+    range: StatsEnum
+    durability: StatsEnum
+    precision: StatsEnum
+    potential: StatsEnum
 
 
 class StandSchema(BaseModel):
