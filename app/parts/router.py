@@ -41,7 +41,7 @@ async def get_part_with_number(
     response_model=PartSchema
 )
 async def create_part(
-    payload: Annotated[PartSchema | None, Body()],
+    payload: Annotated[PartSchema, Body()],
     part_repository: PartRepositoryDep
 ):
     part = part_repository.create(payload)
