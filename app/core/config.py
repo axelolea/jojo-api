@@ -8,6 +8,9 @@ class Settings(BaseSettings):
     database_url: str
     jwt_secret: str
     jwt_expiration_days: str
+    port: int
+    debug: bool
+    reload: bool
 
     class Config:
         env_file = '.env'
