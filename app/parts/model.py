@@ -1,6 +1,6 @@
 from sqlalchemy import String, Integer, Column
 from app.db.config import Base
-# from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship
 
 
 class Part(Base):
@@ -16,5 +16,5 @@ class Part(Base):
     def __str__(self) -> str:
         return f'<< {self.number} .- {self.name} >>'
 
-    # stands = relationship('Stand', back_populates='parts')
-    # characters = relationship('Stand', back_populates='parts')
+    stands = relationship('Stand', back_populates='parts')
+    characters = relationship('Character', back_populates='parts')
