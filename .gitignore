@@ -2,3 +2,4 @@
 .env
 versions/
 database.db
+__pycache__/
