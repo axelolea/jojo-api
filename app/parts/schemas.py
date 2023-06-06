@@ -1,7 +1,9 @@
 from pydantic import BaseModel, Field
+from app.utils.example_response import EXAMPLE_PART_RESPONSES as EXAMPLE
 
 
 class PartSchema(BaseModel):
+
     number: int = Field(
         title='Number of the part in Jojo',
         gt=0
@@ -19,6 +21,9 @@ class PartSchema(BaseModel):
 
     class Config:
         orm_mode = True
+        schema_extra = {
+            'example': EXAMPLE
+        }
 
 
 class ListPartsSchema(BaseModel):
@@ -26,3 +31,8 @@ class ListPartsSchema(BaseModel):
 
     class Config:
         orm_mode = True
+        schema_extra = {
+            'example': {
+                'data': [EXAMPLE]
+            }
+        }

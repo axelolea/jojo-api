@@ -17,10 +17,10 @@ class CharacterSchema(BaseModel):
     catchphrase: str | None = None
 
 
-class CharacterInDB(CharacterSchema):
+class CharacterInDBSchema(CharacterSchema):
     id: int
 
 
 class CharactersList(BaseModel):
-    data: list[CharacterInDB]
+    data: list[CharacterInDBSchema]
     pagination: PaginationSchema

@@ -30,10 +30,10 @@ class StandSchema(BaseModel):
     stats: StatsSchema
 
 
-class StandInDB(StandSchema):
+class StandInDBSchema(StandSchema):
     id: int
 
 
 class StandsList(BaseModel):
-    data: list[StandInDB]
+    data: list[StandInDBSchema]
     pagination: PaginationSchema

@@ -6,5 +6,9 @@ class ImagesSchema(BaseModel):
     half_body: str
 
 
+class ImagesInDBSchema(ImagesSchema):
+    id: int
+
+
 class ImagesList(BaseModel):
     data: list[ImagesSchema]
