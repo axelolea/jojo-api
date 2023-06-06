@@ -5,7 +5,7 @@ from app.db.config import Base
 # Modelos
 from app.parts.model import Part
 from app.images.model import Images
-from app.stands.model import Stand
+from app.stands.models import Stand, Stats
 from app.characters.model import Character
 
 from app.core.config import get_settings

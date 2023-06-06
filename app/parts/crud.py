@@ -1,7 +1,6 @@
 from typing import Annotated
 
-from fastapi import Depends
-# from fastapi.encoders import jsonable_encoder
+from fastapi import Depends, HTTPException
 
 from app.db.repository import BaseRepository, get_repository
 
@@ -13,6 +12,15 @@ class PartRepository(BaseRepository):
 
     def create(self, payload: PartSchema) -> Part:
         new_part = Part(**payload.dict())
+
+        parts = self.db.query(Part).filter_by(number=new_part.number).first()
+
+        if parts:
+            raise HTTPException(
+                status_code=404,
+                detail="Part has exist in db."
+            )
+
         self.db.add(new_part)
         self.db.commit()
         self.db.refresh(new_part)
