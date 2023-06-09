@@ -10,7 +10,6 @@ class Settings(BaseSettings):
     jwt_expiration_days: str
     port: int
     debug: bool
-    reload: bool
 
     class Config:
         env_file = '.env'
